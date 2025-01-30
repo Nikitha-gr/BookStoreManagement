@@ -22,7 +22,8 @@ export default function Login() {
     }
 
     return (
-        <div className="form">
+        <div className="login-cont">
+            <h1>Please Login</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

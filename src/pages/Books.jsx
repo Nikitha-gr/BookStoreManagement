@@ -1,18 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Books = () => {
     const [books, setBooks] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setLoading(true);
         axios
-            .get("https://profuse-brave-soul.glitch.me/books")
+            .get(`https://profuse-brave-soul.glitch.me/books`)
             .then((res) => {
-                setBooks(res.data)
-                console.log(res.data)
+                setBooks(res.data.books)
+                console.log(res.data.books)
             })
             .catch((err) => setError(err.response ? err.response.data : err.message))
             .finally(setLoading(false));
