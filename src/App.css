@@ -62,6 +62,16 @@ input[type="submit"] {
     padding: 20px;
 }
 
+.cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.sorting {
+    display: flex;
+    gap: 20px;
+}
+
 .books-card {
     display: flex;
     flex-direction: column;

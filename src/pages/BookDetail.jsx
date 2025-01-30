@@ -21,6 +21,14 @@ const BookDetail = () => {
         navigate("/")
     }, []);
 
+    const handleDelete = () => {
+        axios
+            .delete(`https://profuse-brave-soul.glitch.me/books/${id}`)
+            .then((res) => setBook(res.data))
+            .catch((err) => setError(err.response ? err.response.data : err.message))
+            .finally(setLoading(false));
+    }
+
     return (
         <div className="details-container">
             {isLoading && <h1>Loading...</h1>}
@@ -39,6 +47,7 @@ const BookDetail = () => {
                         <p>Description: {book.description} </p>
                     </div>
                     <div>
+                        <button onClick={()=>handleDelete}>Delete Book</button>
                         <button onClick={() => navigate("/books")}>Go Back</button>
                     </div>
                 </div>
